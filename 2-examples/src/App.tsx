@@ -1,26 +1,26 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import anh from "./assets/images/Pa.jpg";
+// import RateButton from "./components/Homeworks/session03/StarRateButton/StarRateButton";
+// import CountClass from "./components/ex/CountClass";
+import CountFunc from "./components/ex/CountFunc";
+// import LikeButton from "./components/Homeworks/session03/LikeButton/LikeButton";
+// import StarRateButton from "./components/Homeworks/session03/StarRateButton/StarRateButton";
+// import Session02 from "./components/Homeworks/session02/BlockUI2/Session02";
+// import JSX from "./components/examples/JSX";
+// import anh from "./assets/images/Pa.jpg";
 
 function App() {
-  let styles = {
-    width: '100%',
-    color: "pink",
-    backgroundColor: "white",
-    padding: 50
-  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <div style={styles}>
-          <h1>Tên: Lê Thanh Pa</h1>
-          <h2 className="text-success">Ngày sinh: 14/06/2002</h2>
-          <p className="text-danger">Quê quán: Quảng Nam</p>
-        </div>
-        <img style={{width: 500}} src={anh} />
-      </header>
-    </div>
+    <>
+      {/* <JSX/> */}
+      {/* <Session02/> */}
+      {/* <LikeButton/> */}
+      {/* <StarRateButton/> */}
+      {/* <CountClass/> */}
+      <CountFunc/>
+      {/* <RateButton/> */}
+    </>
   );
 }
 
