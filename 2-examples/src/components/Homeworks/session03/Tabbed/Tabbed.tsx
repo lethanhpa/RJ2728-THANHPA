@@ -15,6 +15,24 @@ const Tabbed = (props: Props) => {
   const toggleTab = (index: number) => {
     setToggleState(index);
   };
+
+  const [toggleState2, setToggleState2] = useState(1);
+
+  const toggleTab2 = (index: number) => {
+    setToggleState2(index);
+  };
+
+  const [toggleState3, setToggleState3] = useState(1);
+
+  const toggleTab3 = (index: number) => {
+    setToggleState3(index);
+  };
+  
+  const [toggleState4, setToggleState4] = useState(1);
+
+  const toggleTab4 = (index: number) => {
+    setToggleState4(index);
+  };
   return (
     <div>
       <div className="container">
@@ -22,9 +40,7 @@ const Tabbed = (props: Props) => {
         <div className="block-tabs">
           <button
             className={
-              toggleState === 1
-                ? "tabs button-tab active-button-tabs"
-                : "button-tab tabs"
+              toggleState === 1 ? "tabs button-tab active-button-tabs" : "button-tab tabs"
             }
             onClick={() => toggleTab(1)}
           >
@@ -130,11 +146,11 @@ const Tabbed = (props: Props) => {
         <div className="block-tabs">
           <button
             className={
-              toggleState === 1
+              toggleState2 === 5
                 ? "tabs icon-tab active-icon-tabs"
                 : "icon-tab tabs"
             }
-            onClick={() => toggleTab(1)}
+            onClick={() => toggleTab2(5)}
           >
             <div className="icon">
               <BsFillSuitSpadeFill />
@@ -143,11 +159,11 @@ const Tabbed = (props: Props) => {
           </button>
           <button
             className={
-              toggleState === 2
+              toggleState2 === 6
                 ? "tabs icon-tab active-icon-tabs"
                 : "icon-tab tabs"
             }
-            onClick={() => toggleTab(2)}
+            onClick={() => toggleTab2(6)}
           >
             <div className="icon">
               <BsFillSuitClubFill />
@@ -156,11 +172,11 @@ const Tabbed = (props: Props) => {
           </button>
           <button
             className={
-              toggleState === 3
+              toggleState2 === 7
                 ? "tabs icon-tab active-icon-tabs"
                 : "icon-tab tabs"
             }
-            onClick={() => toggleTab(3)}
+            onClick={() => toggleTab2(7)}
           >
             <div className="icon">
               <BsFillSuitDiamondFill />
@@ -169,11 +185,11 @@ const Tabbed = (props: Props) => {
           </button>
           <button
             className={
-              toggleState === 4
+              toggleState2 === 8
                 ? "tabs icon-tab active-icon-tabs"
                 : "icon-tab tabs"
             }
-            onClick={() => toggleTab(4)}
+            onClick={() => toggleTab2(8)}
           >
             <div className="icon">
               <BsFillSuitHeartFill />
@@ -185,7 +201,7 @@ const Tabbed = (props: Props) => {
         <div className="content-tabs">
           <div
             className={
-              toggleState === 1 ? "content  active-content" : "content"
+              toggleState2 === 5 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -200,7 +216,7 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 2 ? "content  active-content" : "content"
+              toggleState2 === 6 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -215,7 +231,7 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 3 ? "content  active-content" : "content"
+              toggleState2 === 7 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -230,7 +246,7 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 4 ? "content  active-content" : "content"
+              toggleState2 === 8 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -250,41 +266,41 @@ const Tabbed = (props: Props) => {
         <div className="block-tabs">
           <button
             className={
-              toggleState === 1
+              toggleState3 === 9
                 ? "tabs  text-tab active-text-tabs"
                 : "tabs text-tab"
             }
-            onClick={() => toggleTab(1)}
+            onClick={() => toggleTab3(9)}
           >
             HISTORY
           </button>
           <button
             className={
-              toggleState === 2
+              toggleState3 === 10
                 ? "tabs text-tab active-text-tabs"
                 : "tabs text-tab"
             }
-            onClick={() => toggleTab(2)}
+            onClick={() => toggleTab3(10)}
           >
             APPROACH
           </button>
           <button
             className={
-              toggleState === 3
+              toggleState3 === 11
                 ? "tabs text-tab active-text-tabs"
                 : "tabs text-tab"
             }
-            onClick={() => toggleTab(3)}
+            onClick={() => toggleTab3(11)}
           >
             CULTURE
           </button>
           <button
             className={
-              toggleState === 4
+              toggleState3 === 12
                 ? "tabs text-tab active-text-tabs"
                 : "tabs text-tab"
             }
-            onClick={() => toggleTab(4)}
+            onClick={() => toggleTab3(12)}
           >
             METHOD
           </button>
@@ -293,7 +309,7 @@ const Tabbed = (props: Props) => {
         <div className="content-tabs">
           <div
             className={
-              toggleState === 1 ? "content  active-content" : "content"
+              toggleState3 === 9 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -308,7 +324,7 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 2 ? "content  active-content" : "content"
+              toggleState3 === 10 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -323,7 +339,7 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 3 ? "content  active-content" : "content"
+              toggleState3 === 11 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -338,7 +354,7 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 4 ? "content  active-content" : "content"
+              toggleState3 === 12 ? "content  active-content" : "content"
             }
           >
             <p>
@@ -359,41 +375,41 @@ const Tabbed = (props: Props) => {
           <div className="block-tabs-vertical">
             <button
               className={
-                toggleState === 1
+                toggleState4 === 13
                   ? "vertical-tab active-vertical-tabs"
                   : "vertical-tab"
               }
-              onClick={() => toggleTab(1)}
+              onClick={() => toggleTab4(13)}
             >
               HISTORY
             </button>
             <button
               className={
-                toggleState === 2
+                toggleState4 === 14
                   ? "vertical-tab active-vertical-tabs"
                   : "vertical-tab"
               }
-              onClick={() => toggleTab(2)}
+              onClick={() => toggleTab4(14)}
             >
               APPROACH
             </button>
             <button
               className={
-                toggleState === 3
+                toggleState4 === 15
                   ? "vertical-tab active-vertical-tabs"
                   : "vertical-tab"
               }
-              onClick={() => toggleTab(3)}
+              onClick={() => toggleTab4(15)}
             >
               CULTURE
             </button>
             <button
               className={
-                toggleState === 4
+                toggleState4 === 16
                   ? "vertical-tab active-vertical-tabs"
                   : "vertical-tab"
               }
-              onClick={() => toggleTab(4)}
+              onClick={() => toggleTab4(16)}
             >
               METHOD
             </button>
@@ -402,7 +418,7 @@ const Tabbed = (props: Props) => {
           <div className="content-tabs-vertical">
             <div
               className={
-                toggleState === 1 ? "content  active-content" : "content"
+                toggleState4 === 13 ? "content  active-content" : "content"
               }
             >
               <p>LET'S TALK TABS</p>
@@ -427,7 +443,7 @@ const Tabbed = (props: Props) => {
 
             <div
               className={
-                toggleState === 2 ? "content  active-content" : "content"
+                toggleState4 === 14 ? "content  active-content" : "content"
               }
             >
               <p>COOL TABS</p>
@@ -452,7 +468,7 @@ const Tabbed = (props: Props) => {
 
             <div
               className={
-                toggleState === 3 ? "content  active-content" : "content"
+                toggleState4 === 15 ? "content  active-content" : "content"
               }
             >
               <p>SHORTER TABS</p>
@@ -469,7 +485,7 @@ const Tabbed = (props: Props) => {
 
             <div
               className={
-                toggleState === 4 ? "content  active-content" : "content"
+                toggleState4 === 16 ? "content  active-content" : "content"
               }
             >
               <p>LONGER TABS</p>
