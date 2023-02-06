@@ -9,7 +9,7 @@ import {
 
 type Props = {};
 
-const Tabs = (props: Props) => {
+const Tabbed = (props: Props) => {
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index: number) => {
@@ -503,4 +503,4 @@ const Tabs = (props: Props) => {
   );
 };
 
-export default Tabs;
+export default Tabbed;
