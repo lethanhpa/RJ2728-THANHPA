@@ -34,4 +34,4 @@ const UserDetail: React.FC = () => {
   return <div>{user?.name}</div>;
 };
 
-export default UserDetail;
+export default UserDetail
