@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 interface IUser {
   name: string;
@@ -7,6 +8,7 @@ interface IUser {
 }
 
 const UserDetail: React.FC = () => {
+  let params = useParams();
   const [user, setUser] = useState<IUser>({
     name: "1a",
     age: 17,
@@ -18,7 +20,9 @@ const UserDetail: React.FC = () => {
   }, []);
 
   const getUser = () => {
-    const url = "https://63a06bb524d74f9fe837bdf6.mockapi.io/users/4";
+    console.log(params.id);
+    const url =
+      "https://63e47d654474903105ec4e57.mockapi.io/api/v1/users/" + params.id;
     fetch(url, {
       method: "GET",
     })
@@ -31,7 +35,7 @@ const UserDetail: React.FC = () => {
         console.error("ERROR:", error);
       });
   };
-  return <div>{user?.name}</div>;
+  return <div>DETAIL: {user?.name}</div>;
 };
 
-export default UserDetail
+export default UserDetail;
