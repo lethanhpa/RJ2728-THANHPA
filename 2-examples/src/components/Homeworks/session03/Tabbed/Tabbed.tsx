@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Tabbed.css";
+import Styles from "./Tabbed.module.css";
 import {
   BsFillSuitSpadeFill,
   BsFillSuitClubFill,
@@ -10,24 +10,21 @@ import {
 type Props = {};
 
 const Tabbed = (props: Props) => {
-  const [toggleState, setToggleState] = useState(1);
+  const [toggleState1, setToggleState1] = useState(1);
 
-  const toggleTab = (index: number) => {
-    setToggleState(index);
+  const toggleTab1 = (index: number) => {
+    setToggleState1(index);
   };
-
   const [toggleState2, setToggleState2] = useState(1);
 
   const toggleTab2 = (index: number) => {
     setToggleState2(index);
   };
-
   const [toggleState3, setToggleState3] = useState(1);
 
   const toggleTab3 = (index: number) => {
     setToggleState3(index);
   };
-  
   const [toggleState4, setToggleState4] = useState(1);
 
   const toggleTab4 = (index: number) => {
@@ -35,53 +32,57 @@ const Tabbed = (props: Props) => {
   };
   return (
     <div>
-      <div className="container">
-        <div className="title">BUTTON TABS</div>
-        <div className="block-tabs">
+      <div className={Styles.container}>
+        <div className={Styles.title}>BUTTON TABS</div>
+        <div className={Styles.block_tabs}>
           <button
             className={
-              toggleState === 1 ? "tabs button-tab active-button-tabs" : "button-tab tabs"
+              toggleState1 === 1
+                ? `${Styles["tabs"]} ${Styles["button_tab"]} ${Styles["active_button_tabs"]}`
+                : `${Styles["button_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab(1)}
+            onClick={() => toggleTab1(1)}
           >
             HISTORY
           </button>
           <button
             className={
-              toggleState === 2
-                ? "tabs button-tab active-button-tabs"
-                : "button-tab tabs"
+              toggleState1 === 2
+                ? `${Styles["tabs"]} ${Styles["button_tab"]} ${Styles["active_button_tabs"]}`
+                : `${Styles["button_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab(2)}
+            onClick={() => toggleTab1(2)}
           >
             APPROACH
           </button>
           <button
             className={
-              toggleState === 3
-                ? "tabs button-tab active-button-tabs"
-                : "button-tab tabs"
+              toggleState1 === 3
+                ? `${Styles["tabs"]} ${Styles["button_tab"]} ${Styles["active_button_tabs"]}`
+                : `${Styles["button_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab(3)}
+            onClick={() => toggleTab1(3)}
           >
             CULTURE
           </button>
           <button
             className={
-              toggleState === 4
-                ? "tabs button-tab active-button-tabs"
-                : "button-tab tabs"
+              toggleState1 === 4
+                ? `${Styles["tabs"]} ${Styles["button_tab"]} ${Styles["active_button_tabs"]}`
+                : `${Styles["button_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab(4)}
+            onClick={() => toggleTab1(4)}
           >
             METHOD
           </button>
         </div>
 
-        <div className="content-tabs">
+        <div className={Styles.content_tabs}>
           <div
             className={
-              toggleState === 1 ? "content  active-content" : "content"
+              toggleState1 === 1
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -96,7 +97,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 2 ? "content  active-content" : "content"
+              toggleState1 === 2
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -111,7 +114,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 3 ? "content  active-content" : "content"
+              toggleState1 === 3
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -126,7 +131,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState === 4 ? "content  active-content" : "content"
+              toggleState1 === 4
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -141,67 +148,69 @@ const Tabbed = (props: Props) => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="title">ICON TABS</div>
-        <div className="block-tabs">
+      <div className={Styles.container}>
+        <div className={Styles.title}>ICON TABS</div>
+        <div className={Styles.block_tabs}>
           <button
             className={
-              toggleState2 === 5
-                ? "tabs icon-tab active-icon-tabs"
-                : "icon-tab tabs"
+              toggleState2 === 1
+                ? `${Styles["tabs"]} ${Styles["icon_tab"]} ${Styles["active_icon_tabs"]}`
+                : `${Styles["icon_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab2(5)}
+            onClick={() => toggleTab2(1)}
           >
-            <div className="icon">
+            <div className={Styles.icon}>
               <BsFillSuitSpadeFill />
             </div>
             <span>HISTORY</span>
           </button>
           <button
             className={
-              toggleState2 === 6
-                ? "tabs icon-tab active-icon-tabs"
-                : "icon-tab tabs"
+              toggleState2 === 2
+                ? `${Styles["tabs"]} ${Styles["icon_tab"]} ${Styles["active_icon_tabs"]}`
+                : `${Styles["icon_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab2(6)}
+            onClick={() => toggleTab2(2)}
           >
-            <div className="icon">
+            <div className={Styles.icon}>
               <BsFillSuitClubFill />
             </div>
             <span>APPROACH</span>
           </button>
           <button
             className={
-              toggleState2 === 7
-                ? "tabs icon-tab active-icon-tabs"
-                : "icon-tab tabs"
+              toggleState2 === 3
+                ? `${Styles["tabs"]} ${Styles["icon_tab"]} ${Styles["active_icon_tabs"]}`
+                : `${Styles["icon_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab2(7)}
+            onClick={() => toggleTab2(3)}
           >
-            <div className="icon">
+            <div className={Styles.icon}>
               <BsFillSuitDiamondFill />
             </div>
             <span>CULTURE</span>
           </button>
           <button
             className={
-              toggleState2 === 8
-                ? "tabs icon-tab active-icon-tabs"
-                : "icon-tab tabs"
+              toggleState2 === 4
+                ? `${Styles["tabs"]} ${Styles["icon_tab"]} ${Styles["active_icon_tabs"]}`
+                : `${Styles["icon_tab"]} ${Styles["tabs"]}`
             }
-            onClick={() => toggleTab2(8)}
+            onClick={() => toggleTab2(4)}
           >
-            <div className="icon">
+            <div className={Styles.icon}>
               <BsFillSuitHeartFill />
             </div>
             <span>METHOD</span>
           </button>
         </div>
 
-        <div className="content-tabs">
+        <div className={Styles.content_tabs}>
           <div
             className={
-              toggleState2 === 5 ? "content  active-content" : "content"
+              toggleState2 === 1
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -216,7 +225,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState2 === 6 ? "content  active-content" : "content"
+              toggleState2 === 2
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -231,7 +242,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState2 === 7 ? "content  active-content" : "content"
+              toggleState2 === 3
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -246,7 +259,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState2 === 8 ? "content  active-content" : "content"
+              toggleState2 === 4
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -261,55 +276,57 @@ const Tabbed = (props: Props) => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="title">TEXT TABS</div>
-        <div className="block-tabs">
+      <div className={Styles.container}>
+        <div className={Styles.title}>TEXT TABS</div>
+        <div className={Styles.block_tabs}>
           <button
             className={
-              toggleState3 === 9
-                ? "tabs  text-tab active-text-tabs"
-                : "tabs text-tab"
+              toggleState3 === 1
+                ? `${Styles["tabs"]} ${Styles["text_tab"]} ${Styles["active_text_tabs"]}`
+                : `${Styles["tabs"]} ${Styles["text_tab"]}`
             }
-            onClick={() => toggleTab3(9)}
+            onClick={() => toggleTab3(1)}
           >
             HISTORY
           </button>
           <button
             className={
-              toggleState3 === 10
-                ? "tabs text-tab active-text-tabs"
-                : "tabs text-tab"
+              toggleState3 === 2
+                ? `${Styles["tabs"]} ${Styles["text_tab"]} ${Styles["active_text_tabs"]}`
+                : `${Styles["tabs"]} ${Styles["text_tab"]}`
             }
-            onClick={() => toggleTab3(10)}
+            onClick={() => toggleTab3(2)}
           >
             APPROACH
           </button>
           <button
             className={
-              toggleState3 === 11
-                ? "tabs text-tab active-text-tabs"
-                : "tabs text-tab"
+              toggleState3 === 3
+                ? `${Styles["tabs"]} ${Styles["text_tab"]} ${Styles["active_text_tabs"]}`
+                : `${Styles["tabs"]} ${Styles["text_tab"]}`
             }
-            onClick={() => toggleTab3(11)}
+            onClick={() => toggleTab3(3)}
           >
             CULTURE
           </button>
           <button
             className={
-              toggleState3 === 12
-                ? "tabs text-tab active-text-tabs"
-                : "tabs text-tab"
+              toggleState3 === 4
+                ? `${Styles["tabs"]} ${Styles["text_tab"]} ${Styles["active_text_tabs"]}`
+                : `${Styles["tabs"]} ${Styles["text_tab"]}`
             }
-            onClick={() => toggleTab3(12)}
+            onClick={() => toggleTab3(4)}
           >
             METHOD
           </button>
         </div>
 
-        <div className="content-tabs">
+        <div className={Styles.content_tabs}>
           <div
             className={
-              toggleState3 === 9 ? "content  active-content" : "content"
+              toggleState3 === 1
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -324,7 +341,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState3 === 10 ? "content  active-content" : "content"
+              toggleState3 === 2
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -339,7 +358,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState3 === 11 ? "content  active-content" : "content"
+              toggleState3 === 3
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -354,7 +375,9 @@ const Tabbed = (props: Props) => {
 
           <div
             className={
-              toggleState3 === 12 ? "content  active-content" : "content"
+              toggleState3 === 4
+                ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
             }
           >
             <p>
@@ -369,56 +392,58 @@ const Tabbed = (props: Props) => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="title">VERTICAL BUTTONS</div>
+      <div className={Styles.container}>
+        <div className={Styles.titlee}>VERTICAL BUTTONS</div>
         <div className="d-flex">
-          <div className="block-tabs-vertical">
+          <div className={Styles.block_tabs_vertical}>
             <button
               className={
-                toggleState4 === 13
-                  ? "vertical-tab active-vertical-tabs"
-                  : "vertical-tab"
+                toggleState4 === 1
+                  ? `${Styles["vertical_tab"]} ${Styles["active_vertical_tabs"]}`
+                  : `${Styles["vertical_tab"]}`
               }
-              onClick={() => toggleTab4(13)}
+              onClick={() => toggleTab4(1)}
             >
               HISTORY
             </button>
             <button
               className={
-                toggleState4 === 14
-                  ? "vertical-tab active-vertical-tabs"
-                  : "vertical-tab"
+                toggleState4 === 2
+                  ? `${Styles["vertical_tab"]} ${Styles["active_vertical_tabs"]}`
+                  : `${Styles["vertical_tab"]}`
               }
-              onClick={() => toggleTab4(14)}
+              onClick={() => toggleTab4(2)}
             >
               APPROACH
             </button>
             <button
               className={
-                toggleState4 === 15
-                  ? "vertical-tab active-vertical-tabs"
-                  : "vertical-tab"
+                toggleState4 === 3
+                  ? `${Styles["vertical_tab"]} ${Styles["active_vertical_tabs"]}`
+                  : `${Styles["vertical_tab"]}`
               }
-              onClick={() => toggleTab4(15)}
+              onClick={() => toggleTab4(3)}
             >
               CULTURE
             </button>
             <button
               className={
-                toggleState4 === 16
-                  ? "vertical-tab active-vertical-tabs"
-                  : "vertical-tab"
+                toggleState4 === 4
+                  ? `${Styles["vertical_tab"]} ${Styles["active_vertical_tabs"]}`
+                  : `${Styles["vertical_tab"]}`
               }
-              onClick={() => toggleTab4(16)}
+              onClick={() => toggleTab4(4)}
             >
               METHOD
             </button>
           </div>
 
-          <div className="content-tabs-vertical">
+          <div className={Styles.content_tabs_vertical}>
             <div
               className={
-                toggleState4 === 13 ? "content  active-content" : "content"
+                toggleState4 === 1
+                  ? `${Styles["content"]} ${Styles["active_content"]}`
+                  : `${Styles["content"]}`
               }
             >
               <p>LET'S TALK TABS</p>
@@ -443,7 +468,9 @@ const Tabbed = (props: Props) => {
 
             <div
               className={
-                toggleState4 === 14 ? "content  active-content" : "content"
+                toggleState4 === 2
+                  ? `${Styles["content"]} ${Styles["active_content"]}`
+                  : `${Styles["content"]}`
               }
             >
               <p>COOL TABS</p>
@@ -468,7 +495,9 @@ const Tabbed = (props: Props) => {
 
             <div
               className={
-                toggleState4 === 15 ? "content  active-content" : "content"
+                toggleState4 === 3
+                  ? `${Styles["content"]} ${Styles["active_content"]}`
+                  : `${Styles["content"]}`
               }
             >
               <p>SHORTER TABS</p>
@@ -485,7 +514,9 @@ const Tabbed = (props: Props) => {
 
             <div
               className={
-                toggleState4 === 16 ? "content  active-content" : "content"
+                toggleState4 === 4
+                  ? `${Styles["content"]} ${Styles["active_content"]}`
+                  : `${Styles["content"]}`
               }
             >
               <p>LONGER TABS</p>

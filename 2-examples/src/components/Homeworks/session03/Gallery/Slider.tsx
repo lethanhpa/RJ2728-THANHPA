@@ -1,71 +1,77 @@
-import React, { useState } from "react";
-import "./Slider.css";
-import cover14 from "./img/cover14.jpg";
-import cover15 from "./img/cover15.jpg";
-import cover16 from "./img/cover16.jpg";
+import React, { useEffect, useState } from "react";
+import Styles from "./Slider.module.css";
 
-type Props = {};
-
-const Slider = (props: Props) => {
-  const [user, setUser] = useState([
+const Slider: React.FC = () => {
+  const slides = [
     {
-      name: "Jeannette Weissnat",
-      avatar:
-        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/374.jpg",
-      city: "Port Beatricecester",
-      id: "3",
+      id: 1,
+      image: "http://foundry.mediumra.re/img/cover14.jpg",
     },
     {
-      name: "Ms. Irene Grimes",
-      avatar:
-        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/254.jpg",
-      city: "East Honolulu",
-      id: "4",
+      id: 2,
+      image: "http://foundry.mediumra.re/img/cover15.jpg",
     },
     {
-      name: "Dominic Farrell",
-      avatar:
-        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/773.jpg",
-      city: "Orange",
-      id: "5",
+      id: 3,
+      image: "http://foundry.mediumra.re/img/cover16.jpg",
     },
-  ]);
+  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentSlide((currentSlide + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(intervalId);
+  }, [currentSlide, slides.length]);
+  const handleNext = () => {
+    setCurrentSlide((currentSlide + 1) % slides.length);
+  };
 
   return (
-    <div
-      id="carouselExampleFade"
-      className="carousel slide carousel-fade"
-      data-bs-ride="carousel"
-    >
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-        <img src={cover14} className="d-block w-100" />
+    <div className={Styles.slide}>
+      <div
+        id="carouselExampleFade"
+        className="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img src={slides[currentSlide].image} className="d-block w-100" />
+          </div>
+          <div className="carousel-item">
+            <img src={slides[currentSlide].image} className="d-block w-100" />
+          </div>
+          <div className="carousel-item">
+            <img src={slides[currentSlide].image} className="d-block w-100" />
+          </div>
         </div>
-        <div className="carousel-item">
-          <img src={cover15} className="d-block w-100" />
-        </div>
-        <div className="carousel-item">
-          <img src={cover16} className="d-block w-100" />
-        </div>
+        <button
+          onClick={handleNext}
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          onClick={handleNext}
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
+        </button>
       </div>
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleFade"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleFade"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Accordions.css";
+import Styles from "./Accordions.module.css";
 
 type Props = {};
 
@@ -10,13 +10,15 @@ const Accordions = (props: Props) => {
     setToggleState(index);
   };
   return (
-    <div className="container">
-      <div className="block-accordion">
-        <div className="container-accordion">
-          <div className="div-accordion">
+    <div className={Styles.container}>
+      <div className={Styles.block_accordion}>
+        <div className={Styles.container_accordion}>
+          <div className={Styles.div_accordion}>
             <button
               className={
-                toggleState === 1 ? "accordion active-accordion" : "accordion"
+                toggleState === 1
+                  ? `${Styles["accordion"]} ${Styles["active_accordion"]} ${Styles["active_button_tabs"]}`
+                  : `${Styles["active_accordion"]} ${Styles["accordion"]}`
               }
               onClick={() => toggleAccordions(1)}
             >
@@ -24,7 +26,8 @@ const Accordions = (props: Props) => {
             </button>
             <div
               className={
-                toggleState === 1 ? "content  active-content" : "content"
+                toggleState === 1 ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
               }
             >
               <p>
@@ -37,11 +40,12 @@ const Accordions = (props: Props) => {
           </div>
         </div>
 
-        <div className="container-accordion">
-          <div className="div-accordion">
+        <div className={Styles.container_accordion}>
+          <div className={Styles.div_accordion}>
             <button
               className={
-                toggleState === 2 ? "accordion active-accordion" : "accordion"
+                toggleState === 2 ? `${Styles["accordion"]} ${Styles["active_accordion"]} ${Styles["active_button_tabs"]}`
+                : `${Styles["active_accordion"]} ${Styles["accordion"]}`
               }
               onClick={() => toggleAccordions(2)}
             >
@@ -49,7 +53,8 @@ const Accordions = (props: Props) => {
             </button>
             <div
               className={
-                toggleState === 2 ? "content  active-content" : "content"
+                toggleState === 2 ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
               }
             >
               <p>
@@ -62,11 +67,12 @@ const Accordions = (props: Props) => {
           </div>
         </div>
 
-        <div className="container-accordion">
-          <div className="div-accordion">
+        <div className={Styles.container_accordion}>
+          <div className={Styles.div_accordion}>
             <button
               className={
-                toggleState === 3 ? "accordion active-accordion" : "accordion"
+                toggleState === 3 ? `${Styles["accordion"]} ${Styles["active_accordion"]} ${Styles["active_button_tabs"]}`
+                : `${Styles["active_accordion"]} ${Styles["accordion"]}`
               }
               onClick={() => toggleAccordions(3)}
             >
@@ -74,7 +80,8 @@ const Accordions = (props: Props) => {
             </button>
             <div
               className={
-                toggleState === 3 ? "content  active-content" : "content"
+                toggleState === 3 ? `${Styles["content"]} ${Styles["active_content"]}`
+                : `${Styles["content"]}`
               }
             >
               <p>

@@ -7,11 +7,11 @@
     justify-content: center;
 }
 
-.block-accordion {
+.block_accordion {
     width: 60%;
 }
 
-.container-accordion {
+.container_accordion {
     padding-top: 10px;
 }
 
@@ -25,11 +25,11 @@
     border: none;
 }
 
-.div-accordion {
+.div_accordion {
     border: 0.5px solid rgb(216, 216, 216);
 }
 
-.active-accordion {
+.active_accordion {
     background: rgb(0, 205, 109);
     color: white;
     letter-spacing: 3px;
@@ -41,6 +41,6 @@
     display: none;
 }
 
-.active-content {
+.active_content {
     display: block;
 }

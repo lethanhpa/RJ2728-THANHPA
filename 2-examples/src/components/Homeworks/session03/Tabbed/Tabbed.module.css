@@ -20,18 +20,18 @@
     padding-bottom: 15px;
 }
 
-.block-tabs {
+.block_tabs {
     display: flex;
     width: 50%;
 }
 
-.block-tabs-vertical {
+.block_tabs_vertical {
     display: flex;
     flex-direction: column;
     width: 30%;
 }
 
-.vertical-tab,
+.vertical_tab,
 .tabs {
     padding: 15px;
     color: rgb(135, 135, 135);
@@ -45,45 +45,45 @@
     width: 50%;
 }
 
-.text-tab {
+.text_tab {
     border-bottom: 0.5px solid rgb(198, 198, 198);
     background-color: white;
 }
 
-.button-tab {
+.button_tab {
     background-color: rgb(238, 238, 238);
 }
 
-.icon-tab {
+.icon_tab {
     background: none;
 }
 
-.active-text-tabs {
+.active_text_tabs {
     border-bottom: 1px solid;
     color: rgb(31, 171, 0);
 }
 
-.active-button-tabs {
+.active_button_tabs {
     color: white;
     background-color: rgb(31, 171, 0);
 }
 
-.active-vertical-tabs {
+.active_vertical_tabs {
     margin: 10px 0px 10px 0px;
     color: white;
     background-color: rgb(31, 171, 0);
 }
 
-.active-icon-tabs {
+.active_icon_tabs {
     color: rgb(31, 171, 0);
 }
 
-.content-tabs {
+.content_tabs {
     width: 70%;
     padding: 20px;
 }
 
-.content-tabs-vertical {
+.content_tabs_vertical {
     width: 70%;
     text-align: left;
     padding-left: 20px;
@@ -94,6 +94,6 @@
     display: none;
 }
 
-.active-content {
+.active_content {
     display: block;
 }
