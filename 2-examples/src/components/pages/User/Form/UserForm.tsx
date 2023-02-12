@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UserForm: React.FC = () => {
   let params = useParams();
+  const navigate = useNavigate();
   const [userName, setUserName] = useState<string>();
   const [userAge, setUserAge] = useState<number>();
 
@@ -10,18 +11,32 @@ const UserForm: React.FC = () => {
     if (params.id) {
       getUser(params.id);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (params.id) {
-      console.log("handelSubmit", "Update");
+      alert("Update Successfully!!!");
       updateUser(userName, userAge);
     } else {
-      console.log("handleSubmit", "Create");
+      alert("Create Successfully!!!");
       createUser(userName, userAge);
     }
+    const url = "https://63e47d654474903105ec4e57.mockapi.io/api/v1/users/";
+    fetch(url, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Succsess:", data);
+        setUserName(data.name);
+        setUserAge(data.age);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("ERROR:", error);
+      });
   };
 
   const getUser = (userId: string) => {
@@ -49,7 +64,7 @@ const UserForm: React.FC = () => {
       age: age,
     };
     fetch(url, {
-      method: "POST", // or PUT
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -98,19 +113,34 @@ const UserForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        defaultValue={userName}
-        onChange={handleChangeUserName}
-      />
-      <input
-        type="number"
-        defaultValue={userAge}
-        onChange={handleChangeUserAge}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="d-flex justify-content-center pt-5">
+      <form
+        className="w-50 border border-3 rounded-3 p-4"
+        onSubmit={handleSubmit}
+      >
+        <div className="mb-3">
+          <label className="form-label">Name</label>
+          <input
+            type="text"
+            className="form-control"
+            defaultValue={userName}
+            onChange={handleChangeUserName}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Age</label>
+          <input
+            type="number"
+            className="form-control"
+            defaultValue={userAge}
+            onChange={handleChangeUserAge}
+          />
+        </div>
+        <button type="submit" className="btn btn-info text-white">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

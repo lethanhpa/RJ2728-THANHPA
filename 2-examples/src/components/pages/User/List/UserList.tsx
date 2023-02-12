@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Styles from "./UserList.module.css";
 
 const UserList: React.FC = () => {
   const navigate = useNavigate();
@@ -22,9 +23,10 @@ const UserList: React.FC = () => {
         console.error("ERROR:", error);
       });
   };
-  
+
   const handleDelete = (userId: string | number) => {
-    const url = "https://63e47d654474903105ec4e57.mockapi.io/api/v1/users/" + userId;
+    const url =
+      "https://63e47d654474903105ec4e57.mockapi.io/api/v1/users/" + userId;
     fetch(url, {
       method: "DELETE",
     })
@@ -50,10 +52,9 @@ const UserList: React.FC = () => {
   };
 
   return (
-    <>
-      <h1>LIST</h1>
+    <div className={Styles.container}>
       <div className="p-5 text-center">
-        <table className="table table-dark table-striped">
+        <table className="table table-dark table-hover">
           <thead>
             <tr>
               <th>ID</th>
@@ -70,19 +71,19 @@ const UserList: React.FC = () => {
                 <td>{item.age}</td>
                 <td>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-success"
                     onClick={() => handleUpdate(item.id)}
                   >
                     Update
                   </button>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-warning"
                     onClick={() => handleDetail(item.id)}
                   >
                     Detail
                   </button>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-danger"
                     onClick={() => handleDelete(item.id)}
                   >
                     Delete
@@ -93,7 +94,7 @@ const UserList: React.FC = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

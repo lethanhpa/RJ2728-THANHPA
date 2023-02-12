@@ -1,15 +1,20 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserDetail from "./Detail/UserDteail";
 import UserForm from "./Form/UserForm";
 import UserList from "./List/UserList";
+import Navigation from "../Auth/Navigation"
 
-function BaseWebRouter() {
+interface IProps {
+  setIsLogin: (value: boolean) => void;
+}
+
+function BaseWebRouter(props: IProps) {
+  const { setIsLogin } = props;
   return (
     <>
       <BrowserRouter>
-        <Link to={"/"}>List | </Link>
-        <Link to={"/form"}>Form</Link>
+       <Navigation setIsLogin={setIsLogin}/>
         <Routes>
           <Route path="/" element={<UserList />} />
           <Route path="/detail/:id" element={<UserDetail />} />
