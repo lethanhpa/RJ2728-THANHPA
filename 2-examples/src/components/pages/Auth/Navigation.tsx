@@ -1,15 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface IProps {
   setIsLogin: (value: boolean) => void;
 }
 
 const Navigation = (props: IProps) => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    setIsLogin(false);
+    navigate(`/`);
+  };
   const { setIsLogin } = props;
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-info">
+      <nav className="navbar navbar-expand-lg bg-secondary">
         <div className="container-fluid">
           <div className="navbar-brand text-white">Navbar</div>
           <button
@@ -28,6 +33,13 @@ const Navigation = (props: IProps) => {
               <li className="nav-item">
                 <div>
                   <Link className="nav-link active text-white" to={"/"}>
+                    Home
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item">
+                <div>
+                  <Link className="nav-link active text-white" to={"/list"}>
                     List
                   </Link>
                 </div>
@@ -53,7 +65,9 @@ const Navigation = (props: IProps) => {
             </form>
             <button
               className="btn btn-danger"
-              onClick={() => setIsLogin(false)}
+              onClick={() => {
+                handleLogout();
+              }}
             >
               Logout
             </button>

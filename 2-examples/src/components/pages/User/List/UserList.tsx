@@ -52,47 +52,44 @@ const UserList: React.FC = () => {
   };
 
   return (
-    <div className={Styles.container}>
-      <div className="p-5 text-center">
-        <table className="table table-dark table-hover">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listUser.map((item) => (
-              <tr key={`user-${item.id}`}>
-                <th>{item.id}</th>
-                <td>{item.name}</td>
-                <td>{item.age}</td>
-                <td>
+    <div className={Styles.div__content}>
+      <div className="d-flex justify-content-around flex-wrap text-white">
+        {listUser.map((item) => (
+          <div key={`user-${item.id}`}>
+            <div className="p-5">
+              <img src={item.avatar} className={Styles.img} alt="..." />
+              <div className="card-body">
+                <h4 className="pt-3 card-title">{item.name}</h4>
+                <h6 className="pt-3 card-text">City: {item.city}</h6>
+                <h6 className="pt-2 card-text">
+                  Age: <i>{item.age}</i>
+                </h6>
+                <div className="d-flex">
                   <button
                     className="btn btn-success"
                     onClick={() => handleUpdate(item.id)}
                   >
                     Update
                   </button>
-                  <button
+                 <div className="px-2">
+                 <button
                     className="btn btn-warning"
                     onClick={() => handleDetail(item.id)}
                   >
                     Detail
                   </button>
+                 </div>
                   <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(item.id)}
                   >
                     Delete
                   </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

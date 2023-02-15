@@ -1,0 +1,9 @@
+img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.div__content {
+    background: url(../assets/image/background_list2.png) center / cover no-repeat;
+}

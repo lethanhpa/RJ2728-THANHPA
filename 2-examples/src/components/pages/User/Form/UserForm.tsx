@@ -5,6 +5,8 @@ const UserForm: React.FC = () => {
   let params = useParams();
   const navigate = useNavigate();
   const [userName, setUserName] = useState<string>();
+  const [userCity, setUserCity] = useState<string>();
+  const [userAvatar, setUserAvatar] = useState<string>();
   const [userAge, setUserAge] = useState<number>();
 
   useEffect(() => {
@@ -18,10 +20,10 @@ const UserForm: React.FC = () => {
     e.preventDefault();
     if (params.id) {
       alert("Update Successfully!!!");
-      updateUser(userName, userAge);
+      updateUser(userName, userCity, userAvatar, userAge);
     } else {
       alert("Create Successfully!!!");
-      createUser(userName, userAge);
+      createUser(userName, userCity, userAvatar, userAge);
     }
     const url = "https://63e47d654474903105ec4e57.mockapi.io/api/v1/users/";
     fetch(url, {
@@ -31,8 +33,10 @@ const UserForm: React.FC = () => {
       .then((data) => {
         console.log("Succsess:", data);
         setUserName(data.name);
+        setUserCity(data.city);
+        setUserAvatar(data.avatar);
         setUserAge(data.age);
-        navigate("/");
+        navigate("/list");
       })
       .catch((error) => {
         console.error("ERROR:", error);
@@ -50,6 +54,8 @@ const UserForm: React.FC = () => {
       .then((data) => {
         console.log("Succsess:", data);
         setUserName(data.name);
+        setUserCity(data.city);
+        setUserAvatar(data.avatar);
         setUserAge(data.age);
       })
       .catch((error) => {
@@ -57,10 +63,17 @@ const UserForm: React.FC = () => {
       });
   };
 
-  const createUser = (name: string | undefined, age: number | undefined) => {
+  const createUser = (
+    name: string | undefined,
+    city: string | undefined,
+    avatar: string | undefined,
+    age: number | undefined
+  ) => {
     const url = "https://63e47d654474903105ec4e57.mockapi.io/api/v1/users";
     const data = {
       name: name,
+      city: city,
+      avatar: avatar,
       age: age,
     };
     fetch(url, {
@@ -79,11 +92,18 @@ const UserForm: React.FC = () => {
       });
   };
 
-  const updateUser = (name: string | undefined, age: number | undefined) => {
+  const updateUser = (
+    name: string | undefined,
+    city: string | undefined,
+    avatar: string | undefined,
+    age: number | undefined
+  ) => {
     const url =
       "https://63e47d654474903105ec4e57.mockapi.io/api/v1/users/" + params.id;
     const data = {
       name: name,
+      city: city,
+      avatar: avatar,
       age: age,
     };
     fetch(url, {
@@ -107,9 +127,17 @@ const UserForm: React.FC = () => {
     setUserName(tempValue);
   };
 
+  const handleChangeUserCity = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const tempValue = e.target.value;
+    setUserCity(tempValue);
+  };
   const handleChangeUserAge = (e: React.ChangeEvent<HTMLInputElement>) => {
     const tempValue = e.target.value;
     setUserAge(parseInt(tempValue));
+  };
+  const handleChangeUserAvatar = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const tempValue = e.target.value;
+    setUserAvatar(tempValue);
   };
 
   return (
@@ -128,12 +156,30 @@ const UserForm: React.FC = () => {
           />
         </div>
         <div className="mb-3">
+          <label className="form-label">City</label>
+          <input
+            type="text"
+            className="form-control"
+            defaultValue={userCity}
+            onChange={handleChangeUserCity}
+          />
+        </div>
+        <div className="mb-3">
           <label className="form-label">Age</label>
           <input
             type="number"
             className="form-control"
             defaultValue={userAge}
             onChange={handleChangeUserAge}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Avatar</label>
+          <input
+            type="text"
+            className="form-control"
+            defaultValue={userAvatar}
+            onChange={handleChangeUserAvatar}
           />
         </div>
         <button type="submit" className="btn btn-info text-white">

@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserDetail from "./Detail/UserDteail";
 import UserForm from "./Form/UserForm";
-import UserList from "./List/UserList";
 import Navigation from "../Auth/Navigation"
+import Home from "./Home/Home";
+import UserList from "./List/UserList";
 
 interface IProps {
   setIsLogin: (value: boolean) => void;
@@ -16,11 +17,17 @@ function BaseWebRouter(props: IProps) {
       <BrowserRouter>
        <Navigation setIsLogin={setIsLogin}/>
         <Routes>
-          <Route path="/" element={<UserList />} />
-          <Route path="/detail/:id" element={<UserDetail />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/list" element={<UserList />} />
+          <Route path="/list/detail/:id" element={<UserDetail />} />
           <Route path="/form" element={<UserForm />} />
-          <Route path="/form/:id" element={<UserForm />} />
+          <Route path="/list/form/:id" element={<UserForm />} />
         </Routes>
+        {/* <Route path='*' element= {
+        <main style={padding: '5px'}}>
+          <p>404 Page not found</p>
+        </main>
+        /> */}
       </BrowserRouter>
     </>
   );
